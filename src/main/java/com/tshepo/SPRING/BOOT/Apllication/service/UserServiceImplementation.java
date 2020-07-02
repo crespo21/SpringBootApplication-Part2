@@ -1,6 +1,7 @@
 package com.tshepo.SPRING.BOOT.Apllication.service;
 
-import com.tshepo.SPRING.BOOT.Apllication.Dao.FakeRepoInterface;
+import com.tshepo.SPRING.BOOT.Apllication.Dao.FakeRepository;
+import com.tshepo.SPRING.BOOT.Apllication.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -9,17 +10,20 @@ import org.springframework.stereotype.Service;
 public class UserServiceImplementation implements UserService {
 
 
-    @Autowired
-    FakeRepoInterface fakeRepoInterface ;
+    final
+    FakeRepository fakeRepository;
+    public UserServiceImplementation(FakeRepository fakeRepository) {
+        this.fakeRepository = fakeRepository;
+    }
+    // add user by calling insertUser from Fake Repository class
     @Override
-    public String addUser(int userId, String userName, String userSurname)
-            throws NoSuchMethodException {
-        return FakeRepoInterface.insertUser(userId,userName,userSurname);
+    public  String addUser(int userId, String userName, String userSurname) {
+        return  FakeRepository.insertUser(userId,userName,userSurname);
     }
 
     @Override
     @Cacheable("string")
-    public String getUser(int userId) {
+    public String getUser(int userId) throws NullPointerException{
         try
         {
             System.out.println("Going to sleep for 5 Secs.. to simulate backend call.");
@@ -32,12 +36,14 @@ public class UserServiceImplementation implements UserService {
         {
             e.printStackTrace();
         }
-        return fakeRepoInterface.findUserById(userId);
+        return fakeRepository.findUserById(userId);
     }
 
     @Override
     public String removeUser(int userId) {
-        return fakeRepoInterface.deleteUser(userId);
+        {
+            return  fakeRepository.deleteUser(userId);
+    }
     }
 
 }

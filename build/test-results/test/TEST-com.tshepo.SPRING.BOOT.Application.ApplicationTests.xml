@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tshepo.SPRING.BOOT.Application.ApplicationTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-05-18T21:07:11" hostname="admin1-ThinkCentre-M72e" time="20.178">
+<testsuite name="com.tshepo.SPRING.BOOT.Application.ApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-07-02T08:12:55" hostname="admin1-ThinkCentre-M72e" time="0.183">
   <properties/>
-  <testcase name="getUserTestFromUserServiceImpl()" classname="com.tshepo.SPRING.BOOT.Application.ApplicationTests" time="20.037"/>
-  <testcase name="testInsertUser()" classname="com.tshepo.SPRING.BOOT.Application.ApplicationTests" time="0.003"/>
-  <testcase name="testFindUserById()" classname="com.tshepo.SPRING.BOOT.Application.ApplicationTests" time="0.003"/>
-  <testcase name="testSecurityConfig()" classname="com.tshepo.SPRING.BOOT.Application.ApplicationTests" time="0.123"/>
-  <testcase name="deleteUserTest()" classname="com.tshepo.SPRING.BOOT.Application.ApplicationTests" time="0.002"/>
-  <system-out><![CDATA[Going to sleep for 5 Secs.. to simulate backend call.
-Going to sleep for 5 Secs.. to simulate backend call.
-Going to sleep for 5 Secs.. to simulate backend call.
-Going to sleep for 5 Secs.. to simulate backend call.
-]]></system-out>
+  <testcase name="testSecurityConfig()" classname="com.tshepo.SPRING.BOOT.Application.ApplicationTests" time="0.183"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
