@@ -1,6 +1,7 @@
 package com.tshepo.SPRING.BOOT.Apllication.model;
-public class User {
 
+
+public class User {
     public int userId;
     public String userName;
     public String userSurname;

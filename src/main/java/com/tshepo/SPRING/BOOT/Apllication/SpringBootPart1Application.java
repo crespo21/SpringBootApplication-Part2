@@ -13,14 +13,16 @@ import java.util.Collections;
 class Application {
 	public static void main(String[] args) throws NullPointerException {
 			SpringApplication application = new SpringApplication(Application.class);
-			application.setDefaultProperties(Collections.singletonMap("server.port", "9090"));
+			application.setDefaultProperties(Collections.singletonMap("server.port", "8887"));
 			application.run(args);
 			FakeRepository fakeRepository = new FakeRepository();
-		    System.out.println("****User contents From User Service Implementation****");
-		    UserServiceImplementation userServiceImplementation = new  UserServiceImplementation(fakeRepository);
-		    System.out.println(userServiceImplementation.addUser(1, "Lesley","jones"));
+			System.out.println(FakeRepository.insertUser(1,"theo","park"));
+			System.out.println(fakeRepository.findUserById(1));
+			System.out.println(fakeRepository.deleteUser(1));
+			UserServiceImplementation userServiceImplementation = new UserServiceImplementation(fakeRepository);
 		    System.out.println(userServiceImplementation.getUser(1));
-		    System.out.println(userServiceImplementation.removeUser(1));
+		    System.out.println(userServiceImplementation.getUser(1));
+		    System.out.println(userServiceImplementation.getUser(1));
 		    System.out.println(new WebSecurityConfigurer());
 	}
 }
