@@ -1,4 +1,4 @@
-package com.tshepo.SPRING.BOOT.Apllication.model;
+package com.tshepo.SPRING.BOOT.Apllication;
 
 
 public class User {

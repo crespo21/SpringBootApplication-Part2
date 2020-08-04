@@ -1,22 +1,21 @@
-package com.tshepo.SPRING.BOOT.Apllication.service;
+package com.tshepo.SPRING.BOOT.Apllication;
 
-import com.tshepo.SPRING.BOOT.Apllication.Dao.FakeRepository;
+import com.tshepo.SPRING.BOOT.Apllication.FakeRepoInterface;
+import com.tshepo.SPRING.BOOT.Apllication.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImplementation implements UserService {
 
-    final
-    FakeRepository fakeRepository;
-    // add user by calling insertUser from Fake Repository class
-    public UserServiceImplementation(FakeRepository fakeRepository) {
-        this.fakeRepository = fakeRepository;
-    }
+    @Autowired
+    FakeRepoInterface fakeRepository;
+
 
     @Override
     public String addUser(int userId, String userName, String userSurname){
-        return FakeRepository.insertUser(2,"black","boy");
+        return fakeRepository.insertUser(2,"black","boy")  + " entered";
     }
 
     // find user by calling getUser from Fake Repository class
@@ -33,11 +32,11 @@ public class UserServiceImplementation implements UserService {
         catch ( InterruptedException e){
             e.printStackTrace();
         }
-        return fakeRepository.findUserById(userId);
+        return  "Hello " +  fakeRepository.findUserById(userId);
     }
     // remove user by calling deleteUser from Fake Repository class
     @Override
     public String removeUser(int userId) {
-        return  fakeRepository.deleteUser(userId);
+        return  fakeRepository.deleteUser(userId)  + " removed";
     }
 }

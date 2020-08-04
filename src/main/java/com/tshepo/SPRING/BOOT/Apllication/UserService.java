@@ -1,4 +1,4 @@
-package com.tshepo.SPRING.BOOT.Apllication.service;
+package com.tshepo.SPRING.BOOT.Apllication;
 
 public interface UserService {
 
